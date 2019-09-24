@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Head from "next/head";
 // import "./style.css";
+import Button from "@material-ui/core/Button";
 
 const Index = () => (
     <div>
@@ -11,19 +12,28 @@ const Index = () => (
                 rel="stylesheet"
                 type="text/css"
             ></link>
+            <link
+                rel="stylesheet"
+                href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            />
         </Head>
         <h1>Football Quiz</h1>
+        <p>This is a football game</p>
         <Link href="/new-game" title="New Game">
-            <button>New Game</button>
+            <Button variant="contained" color="primary" size="large">
+                New Game
+            </Button>
         </Link>
         <Link href="/high-score" title="High Score">
-            <button>High Score</button>
+            <Button variant="contained" color="primary" size="large">
+                High Score
+            </Button>
         </Link>
         <style global jsx>{`
             body {
                 margin: 0;
                 padding: 0;
-                font-family: "Lato", sans-serif;
+                font-family: "Roboto", sans-serif;
                 font-size: 16px;
                 color: #333;
                 -webkit-font-smoothing: antialiased;
