@@ -9,3 +9,4 @@ jspm_packages
 env.yml
 .env
 pastebin.js
+.next
