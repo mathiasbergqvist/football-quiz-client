@@ -1,10 +1,8 @@
 import Link from "next/link";
 import Head from "next/head";
-// import "./style.css";
 import Button from "@material-ui/core/Button";
 import Layout from "../components/Layout";
 import Amplify from "aws-amplify";
-import config from "../config";
 
 Amplify.configure({
     API: {
