@@ -1,7 +1,10 @@
+import Layout from "../components/Layout";
 
 export const HighScore = () => (
     <div>
-      <h1>High Score</h1>
+        <Layout>
+            <h1>High Score</h1>
+        </Layout>
     </div>
 );
 

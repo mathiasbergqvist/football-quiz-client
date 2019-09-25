@@ -2,6 +2,8 @@ import Link from "next/link";
 import Head from "next/head";
 // import "./style.css";
 import Button from "@material-ui/core/Button";
+import Container from "@material-ui/core/Container";
+import Layout from "../components/Layout";
 
 const Index = () => (
     <div>
@@ -17,28 +19,27 @@ const Index = () => (
                 href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
             />
         </Head>
-        <h1>Football Quiz</h1>
-        <p>This is a football game</p>
-        <Link href="/new-game" title="New Game">
-            <Button variant="contained" color="primary" size="large">
-                New Game
-            </Button>
-        </Link>
-        <Link href="/high-score" title="High Score">
-            <Button variant="contained" color="primary" size="large">
-                High Score
-            </Button>
-        </Link>
-        <style global jsx>{`
-            body {
-                margin: 0;
-                padding: 0;
-                font-family: "Roboto", sans-serif;
-                font-size: 16px;
-                color: #333;
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-            }
+        <Layout>
+            <div>
+                <h1>⚽ Welcome To Football Quiz!</h1>
+                <p>Are you ready for the challange?</p>
+                <Link href="/new-game" title="New Game">
+                    <Button variant="contained" color="primary" size="large" style={{width: "100%"}}>
+                        New Game
+                    </Button>
+                </Link>
+                <br />
+                <Link href="/high-score" title="High Score">
+                    <Button variant="contained" color="primary" size="large" style={{width: "100%", marginTop: "15px"}}>
+                        High Score
+                    </Button>
+                </Link>
+            </div>
+        </Layout>
+        <style jsx>{`
+            div {
+                text-align: center;
+            };
         `}</style>
     </div>
 );

@@ -1,7 +1,10 @@
+import Layout from "../components/Layout";
 
 export const NewGame = () => (
     <div>
-      <h1>New game page</h1>
+        <Layout>
+            <h1>New game page</h1>
+        </Layout>
     </div>
 );
 
