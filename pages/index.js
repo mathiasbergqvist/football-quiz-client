@@ -34,7 +34,7 @@ const Index = () => (
             <div>
                 <h1>⚽ Welcome To Football Quiz!</h1>
                 <p>Are you ready for the challange?</p>
-                <Link href="/new-game" title="New Game">
+                <Link href="/game" title="New Game">
                     <Button
                         variant="contained"
                         color="primary"
