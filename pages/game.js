@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { API } from "aws-amplify";
 import Layout from "../components/Layout";
 import Button from "@material-ui/core/Button";
+import Team from "../components/Team";
 
 export const Game = props => {
     const [score, setScore] = useState(0);
@@ -14,6 +15,7 @@ export const Game = props => {
                 <h1>
                     Question {currentQuestion} of {props.teams.length}
                 </h1>
+                <Team team={currentTeam} />
                 <h3>Score: {score}</h3>
                 <Button
                     variant="contained"
