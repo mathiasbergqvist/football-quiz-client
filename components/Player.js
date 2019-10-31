@@ -4,7 +4,7 @@ import { createStyles, makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(theme =>
     createStyles({
         playerName: {
-            minWidth: "200px"
+            minWidth: "150px"
         }
     })
 );
@@ -17,8 +17,9 @@ const Player = props => {
             <div className="Player-number">{number}</div>
             <TextField
                 className={classes.playerName}
-                id="outlined-basic"
-                margin="normal"
+                label="Answer"
+                id="filled-margin-dense"
+                margin="dense"
                 variant="outlined"
                 placeholder={name}
             />
@@ -30,12 +31,14 @@ const Player = props => {
                     margin: 15px;
                 }
                 .Player-number {
-                    width: 100px;
-                    height: 100px;
-                    border-radius: 50px;
-                    font-size: 30px;
+                    font-family: "Lato", sans-serif;
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 30px;
+                    font-size: 20px;
+                    font-weight: bold;
                     color: #fff;
-                    line-height: 100px;
+                    line-height: 60px;
                     text-align: center;
                     background: #ef5350;
                 }
