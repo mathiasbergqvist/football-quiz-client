@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { API } from "aws-amplify";
-import Layout from "../components/Layout";
 import Button from "@material-ui/core/Button";
+import Layout from "../components/Layout";
 import Team from "../components/Team";
 
 export const Game = props => {
     const [score, setScore] = useState(0);
     const [currentQuestion, setCurrentQuestion] = useState(1);
     const [currentTeam, setCurrentTeam] = useState(props.firstTeam);
+
 
     return (
         <div>
