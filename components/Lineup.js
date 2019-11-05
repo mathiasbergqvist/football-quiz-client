@@ -1,16 +1,13 @@
 import Player from "./Player";
+import { getPlayer } from "./helpers";
 
 const Lineup = props => {
     const { squad, players, playertype, register } = props;
 
-    const getPlayer = id => {
-        return squad.find(player => player.player_id === id);
-    };
-
     return (
         <div className="Lineup">
             {players.map((player, index) => {
-                const squadPlayer = getPlayer(player.player);
+                const squadPlayer = getPlayer(squad, player.player);
                 const fullName = `${squadPlayer.firstname} ${squadPlayer.lastname}`;
                 return (
                     <Player

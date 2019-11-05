@@ -1,6 +1,7 @@
 import useForm from "react-hook-form";
 import Player from "./Player";
 import Lineup from "./Lineup";
+import { correctScore } from "./helpers";
 
 const Team = props => {
     const { squad } = props.team;
@@ -14,14 +15,10 @@ const Team = props => {
     } = props.team.lineup;
     const { register, handleSubmit, errors } = useForm(); // initialise the hook
 
-    const getPlayer = id => {
-        return squad.find(player => player.player_id === id);
-    };
-
     const onSubmit = data => {
         event.preventDefault();
-        debugger;
-        console.log("result", data);
+        const score = correctScore(data, squad, props.team.lineup);
+        console.log("score", score);
     };
 
     return (

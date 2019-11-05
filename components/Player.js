@@ -1,6 +1,5 @@
 import TextField from "@material-ui/core/TextField";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import leven from "leven";
 
 const useStyles = makeStyles(theme =>
     createStyles({
@@ -9,13 +8,6 @@ const useStyles = makeStyles(theme =>
         }
     })
 );
-
-const foo = (event, name) => {
-    const bar = name.toLowerCase().trim();
-    const fii = event.target.value.toLowerCase().trim();
-    const value = leven(bar, fii);
-    console.log("likliness", value);
-};
 
 const Player = props => {
     const classes = useStyles();
@@ -28,7 +20,6 @@ const Player = props => {
                 name={`${playertype}-${index}`}
                 ref={register}
                 placeholder={name}
-                onKeyUp={(e) => foo(e, name)}
             />
             <style jsx>{`
                 .Player {
