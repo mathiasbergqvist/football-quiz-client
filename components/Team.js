@@ -18,7 +18,7 @@ const Team = props => {
     const onSubmit = data => {
         event.preventDefault();
         const score = correctScore(data, squad, props.team.lineup);
-        console.log("score", score);
+        props.onRoundDone(score);
     };
 
     return (

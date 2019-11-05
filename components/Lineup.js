@@ -10,13 +10,15 @@ const Lineup = props => {
                 const squadPlayer = getPlayer(squad, player.player);
                 const fullName = `${squadPlayer.firstname} ${squadPlayer.lastname}`;
                 return (
-                    <Player
-                        register={register}
-                        index={index}
-                        playertype={playertype}
-                        number={player.number}
-                        name={fullName}
-                    />
+                    <div className="Lineup-player" key={`player-${player.lastname}`}>
+                        <Player
+                            register={register}
+                            index={index}
+                            playertype={playertype}
+                            number={player.number}
+                            name={fullName}
+                        />
+                    </div>
                 );
             })}
             <style jsx>{`

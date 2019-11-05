@@ -20,8 +20,6 @@ export const isCorrectPlayer = (player, key, answers, squad) => {
 };
 
 export const correctScore = (answers, squad, lineup) => {
-    debugger;
-
     let score = 0;
     const {
         goal_keeper,
