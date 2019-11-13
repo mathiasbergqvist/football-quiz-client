@@ -1,27 +1,28 @@
-import TextField from "@material-ui/core/TextField";
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+import TextField from '@material-ui/core/TextField';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme =>
-    createStyles({
-        playerName: {
-            minWidth: "150px"
-        }
-    })
-);
+const useStyles = makeStyles((theme) => createStyles({
+  playerName: {
+    minWidth: '150px',
+  },
+}));
 
-const Player = props => {
-    const classes = useStyles();
-    const { number, name, playertype, index, register } = props;
-    return (
-        <div className="Player">
-            <div className="Player-number">{number}</div>
-            <input
-                key={`${playertype}-${index}`}
-                name={`${playertype}-${index}`}
-                ref={register}
-                placeholder={name}
-            />
-            <style jsx>{`
+const Player = (props) => {
+  const classes = useStyles();
+  const {
+    number, name, playertype, index, register,
+  } = props;
+  return (
+    <div className="Player">
+      <div className="Player-number">{number}</div>
+      <input
+        key={`${playertype}-${index}`}
+        name={`${playertype}-${index}`}
+        ref={register}
+        placeholder={name}
+      />
+      <style jsx>
+        {`
                 .Player {
                     display: flex;
                     flex-direction: column;
@@ -47,9 +48,10 @@ const Player = props => {
                     height: 30px;
                     border-radius: 5px;
                 }
-            `}</style>
-        </div>
-    );
+            `}
+      </style>
+    </div>
+  );
 };
 
 export default Player;
