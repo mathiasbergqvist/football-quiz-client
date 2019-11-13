@@ -1,7 +1,7 @@
+import Button from "@material-ui/core/Button";
 import useForm from "react-hook-form";
-import Player from "./Player";
-import Lineup from "./Lineup";
 import { correctScore } from "./helpers";
+import Lineup from "./Lineup";
 
 const Team = props => {
     const { squad } = props.team;
@@ -57,7 +57,16 @@ const Team = props => {
                         playertype="goal_keeper"
                         register={register}
                     />
-                    <input type="submit" value="Submit" />
+                    <Button
+                        type="submit"
+                        value="Submit"
+                        variant="contained"
+                        color="primary"
+                        size="large"
+                        style={{ width: "100%", marginTop: "15px" }}
+                    >
+                        Submit
+                    </Button>
                 </div>
             </form>
             <style jsx>{`

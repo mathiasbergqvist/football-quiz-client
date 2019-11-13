@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import Button from "@material-ui/core/Button";
+import { getTeam, getTeams } from "../api";
 import Layout from "../components/Layout";
 import Team from "../components/Team";
-import { getTeams, getTeam } from "../api";
 
 export const Game = props => {
     const [score, setScore] = useState(0);
@@ -34,14 +33,6 @@ export const Game = props => {
                             onRoundDone={setGameScoreAndStartNextRound}
                         />
                         <h3>Score: {score}</h3>
-                        <Button
-                            variant="contained"
-                            color="primary"
-                            size="large"
-                            style={{ width: "100%", marginTop: "15px" }}
-                        >
-                            Submit
-                        </Button>
                     </div>
                 ) : (
                     <h2>Loading team...</h2>

@@ -39,6 +39,13 @@ const Player = props => {
                     line-height: 60px;
                     text-align: center;
                     background: #ef5350;
+                    margin-bottom: 10px;
+                }
+                input {
+                    font-family: "Lato", sans-serif;
+                    font-size: 14px;
+                    height: 30px;
+                    border-radius: 5px;
                 }
             `}</style>
         </div>
