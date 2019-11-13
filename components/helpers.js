@@ -6,6 +6,11 @@ export const getPlayer = (squad, id) => {
     return squad.find(player => player.player_id === id);
 };
 
+export const getLastName = player => {
+    const playerNameArray = player.player_name.split(" ");
+    return playerNameArray[playerNameArray.length - 1];
+};
+
 export const isCorrectSpelling = (string1, string2) => {
     const trimmedString1 = string1.toLowerCase().trim();
     const trimmedString2 = string2.toLowerCase().trim();
@@ -16,7 +21,8 @@ export const isCorrectSpelling = (string1, string2) => {
 export const isCorrectPlayer = (player, key, answers, squad) => {
     const squadPlayer = getPlayer(squad, player.player);
     const answer = answers[key];
-    return isCorrectSpelling(squadPlayer.lastname, answer);
+    const playerLastName = getLastName(squadPlayer);
+    return isCorrectSpelling(playerLastName, answer);
 };
 
 export const correctScore = (answers, squad, lineup) => {

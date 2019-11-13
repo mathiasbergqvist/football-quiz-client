@@ -1,5 +1,5 @@
+import { getPlayer, getLastName } from "./helpers";
 import Player from "./Player";
-import { getPlayer } from "./helpers";
 
 const Lineup = props => {
     const { squad, players, playertype, register } = props;
@@ -8,15 +8,30 @@ const Lineup = props => {
         <div className="Lineup">
             {players.map((player, index) => {
                 const squadPlayer = getPlayer(squad, player.player);
-                const fullName = `${squadPlayer.firstname} ${squadPlayer.lastname}`;
+
+                if (squadPlayer == null) {
+                    return (
+                        <Player
+                            register={register}
+                            index={index}
+                            playertype={playertype}
+                            number={0}
+                            name="Unknown"
+                        />
+                    );
+                }
+            
                 return (
-                    <div className="Lineup-player" key={`player-${player.lastname}`}>
+                    <div
+                        className="Lineup-player"
+                        key={`player-${player.lastname}`}
+                    >
                         <Player
                             register={register}
                             index={index}
                             playertype={playertype}
                             number={player.number}
-                            name={fullName}
+                            name={getLastName(squadPlayer)}
                         />
                     </div>
                 );

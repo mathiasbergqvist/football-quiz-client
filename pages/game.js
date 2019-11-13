@@ -10,25 +10,15 @@ export const Game = props => {
     const [currentRound, setCurrentRound] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
 
-    const setGameScoreAndStartNextRound = points => {
+    const setGameScoreAndStartNextRound = async points => {
         setScore(points);
         const nextRound = currentRound + 1;
         setCurrentRound(nextRound);
-        const nextTeamId = props.teams[currentRound].teamId;
-        setIsLoading(true);
-        getTeam(nextTeamId)
-        .then(nextTeam => {
-            setCurrentTeam(nextTeam);
-        })
-        .catch(e => {
-            console.error("Error fetching next team", e);
-        });
-        debugger;
+        const nextTeamId = props.teams[nextRound].teamId;
+        const nextTeam = await getTeam(nextTeamId);
+        await setIsLoading(false);
+        await setCurrentTeam(nextTeam);
         setIsLoading(false);
-        // const nextTeam = await getTeam(nextTeamId);
-        // await setIsLoading(false);
-        // debugger;
-        // await setCurrentTeam(nextTeam);
     };
 
     return (
@@ -37,7 +27,7 @@ export const Game = props => {
                 {!isLoading ? (
                     <div className="Game-Team">
                         <h1>
-                            Question {currentRound+1} of {props.teams.length}
+                            Question {currentRound + 1} of {props.teams.length}
                         </h1>
                         <Team
                             team={currentTeam}
