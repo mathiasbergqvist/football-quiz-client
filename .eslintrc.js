@@ -26,6 +26,8 @@ module.exports = {
         // Indent props with 4 spaces
         "react/jsx-indent-props": ["error", 4],
         "arrow-parens": 0,
-        "comma-dangle": 0
+        "comma-dangle": 0,
+        "object-curly-newline": 0,
+        "react/jsx-props-no-spreading": 0
     }
 };
