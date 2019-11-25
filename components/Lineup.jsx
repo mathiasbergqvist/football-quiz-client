@@ -1,10 +1,10 @@
 import React from "react";
-import { getPlayer, getLastName } from "./helpers";
+import { getPlayer, getLastName, getCorrection } from "./helpers";
 import Player from "./Player";
 
 const Lineup = (props) => {
     const {
-        squad, players, playertype, register,
+        squad, players, playertype, register, correction
     } = props;
 
     return (
@@ -20,6 +20,7 @@ const Lineup = (props) => {
                             playertype={playertype}
                             number={0}
                             name="Unknown"
+                            correct={getCorrection(correction, index)}
                         />
                     );
                 }
@@ -35,6 +36,7 @@ const Lineup = (props) => {
                             playertype={playertype}
                             number={player.number}
                             name={getLastName(squadPlayer)}
+                            correct={getCorrection(correction, index)}
                         />
                     </div>
                 );

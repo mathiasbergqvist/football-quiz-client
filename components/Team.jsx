@@ -1,5 +1,5 @@
-import React from "react";
 import Button from "@material-ui/core/Button";
+import React, { useState } from "react";
 import useForm from "react-hook-form";
 import { correctScore } from "./helpers";
 import Lineup from "./Lineup";
@@ -19,10 +19,23 @@ const Team = props => {
         striker
     } = team.lineup;
     const { register, handleSubmit } = useForm(); // initialise the hook
-
+    const [correction, setCorrection] = useState({
+        goalKeeper: [],
+        defenders: [],
+        midfieldDefense: [],
+        midfieldOffense: [],
+        strikers: []
+    });
     const onSubmit = data => {
-        const score = correctScore(data, squad, props.team.lineup);
-        props.onRoundDone(score);
+        const answers = correctScore(data, squad, props.team.lineup);
+        setCorrection({
+            goalKeeper: answers.goalKeeper,
+            defenders: answers.defenders,
+            midfieldDefense: answers.midfieldDefense,
+            midfieldOffense: answers.midfieldOffense,
+            strikers: answers.strikers
+        });
+        // props.onRoundDone(answers.score);
     };
 
     return (
@@ -39,6 +52,7 @@ const Team = props => {
                         squad={squad}
                         playertype="striker"
                         register={register}
+                        correction={correction.strikers}
                     />
                     <Lineup
                         // eslint-disable-next-line
@@ -46,6 +60,7 @@ const Team = props => {
                         squad={squad}
                         playertype="midfield_offense"
                         register={register}
+                        correction={correction.midfieldOffense}
                     />
                     <Lineup
                         // eslint-disable-next-line
@@ -53,12 +68,14 @@ const Team = props => {
                         squad={squad}
                         playertype="midfield_defense"
                         register={register}
+                        correction={correction.midfieldDefense}
                     />
                     <Lineup
                         players={defenders}
                         squad={squad}
                         playertype="defender"
                         register={register}
+                        correction={correction.defenders}
                     />
                     <Lineup
                         // eslint-disable-next-line
@@ -66,6 +83,7 @@ const Team = props => {
                         squad={squad}
                         playertype="goal_keeper"
                         register={register}
+                        correction={correction.goalKeeper}
                     />
                     <Button
                         type="submit"
