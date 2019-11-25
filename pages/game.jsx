@@ -26,11 +26,11 @@ export const Game = (props) => {
         {!isLoading ? (
           <div className="Game-Team">
             <h1>
-                            Question
+              Question
               {' '}
               {currentRound + 1}
               {' '}
-of
+              of
               {' '}
               {props.teams.length}
             </h1>
@@ -39,7 +39,7 @@ of
               onRoundDone={setGameScoreAndStartNextRound}
             />
             <h3>
-Score:
+              Score:
               {score}
             </h3>
           </div>
