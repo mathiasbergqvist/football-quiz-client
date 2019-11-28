@@ -5,7 +5,7 @@ import { correctScore } from "./helpers";
 import Lineup from "./Lineup";
 
 const Team = props => {
-    const { team } = props;
+    const { team, showingAnswers } = props;
     const { squad } = team;
     const { name, arena } = team.team;
     const {
@@ -35,7 +35,7 @@ const Team = props => {
             midfieldOffense: answers.midfieldOffense,
             strikers: answers.strikers
         });
-        // props.onRoundDone(answers.score);
+        props.onRoundDone(answers.score);
     };
 
     return (
@@ -92,6 +92,7 @@ const Team = props => {
                         color="primary"
                         size="large"
                         style={{ width: "100%", marginTop: "15px" }}
+                        disabled={showingAnswers}
                     >
                         Submit
                     </Button>
